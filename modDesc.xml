@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="60">
+    <author>GIANTS, DJM</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Wheel Loader Round Bale Fork</en>
+    </title>
+    <description>
+        <en>Round Bale Fork</en>
+    </description>
+	<multiplayer supported="true"/>
+    <iconFilename>store_albuttWheelLoaderRoundBaleFork.dds</iconFilename>
+    <storeItems>
+        <storeItem xmlFilename="wheelLoaderRoundBaleFork.xml"/>
+    </storeItems>
+</modDesc>

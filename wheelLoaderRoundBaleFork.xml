@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="dynamicMountAttacherShovel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs22/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+    <storeData>
+        <name>$l10n_shopItem_frontloaderRoundBaleFork</name>
+        <specs>
+            <combination filterCategory="wheelLoaders" />
+            <combination filterCategory="wheelLoaderVehicles" />
+        </specs>
+        <functions>
+            <function>$l10n_function_frontloaderRoundBaleFork</function>
+        </functions>
+        <image>store_albuttWheelLoaderRoundBaleFork.dds</image>
+        <price>1600</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>ALBUTT</brand>
+        <category>wheelLoaderTools</category>
+        <shopTranslationOffset>0 -0.007 0</shopTranslationOffset>
+        <shopRotationOffset>1.236 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>248576</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>46080</indexBufferMemoryUsage>
+        <textureMemoryUsage>720896</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>frontloaderRoundBaleFork.i3d</filename>
+        <size width="2.5" length="2" />
+        <components>
+            <component centerOfMass="0 0.1 0" solverIterationCount="10" mass="195" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT" />
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="wheelLoader" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1" type="hydraulicIn" node="hydraulicIn01" length="0.05" diameter="0.015" straighteningFactor="1" isTwoPointHose="true">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true" />
+        </hose>
+        <hose inputAttacherJointIndices="1" type="hydraulicOut" node="hydraulicOut01" length="0.05" diameter="0.015" straighteningFactor="2" isTwoPointHose="true">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true" />
+        </hose>
+    </connectionHoses>
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart node="1|0" linkNode="hydraulicIn01_connector" filename="$data/shared/connectionHoses/connectors.i3d" />
+        <dynamicallyLoadedPart node="1|0" linkNode="hydraulicOut01_connector" filename="$data/shared/connectionHoses/connectors.i3d" />
+    </dynamicallyLoadedParts>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="grabLeft">
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="false" mouseSpeedFactor="0.2" iconName="WORKING_WIDTH_TRANSLATE_X" />
+                <dependentMovingTool node="grabRight" speedScale="-1" />
+                <rotation rotationAxis="3" rotSpeed="40" rotAcceleration="500" rotMin="-49" rotMax="3" />
+                <dependentPart node="grabHydraulic" />
+            </movingTool>
+
+            <movingTool node="grabRight">
+                <rotation rotationAxis="3" rotSpeed="40" rotAcceleration="500" rotMin="-3" rotMax="49" />
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="grabHydraulic" referencePoint="grabHydraulicRef" referenceFrame="grabHydraulicRef" isActiveDirty="true" maxUpdateDistance="50">
+                <translatingPart node="grabHydraulicPunch" />
+            </movingPart>
+        </movingParts>
+
+        <sounds>
+            <actionSound template="defaultHydraulicSound" pitchScale="0.6" volumeScale="2" linkNode="grabLeft" actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG" nodes="grabLeft" />
+            <actionSound template="clackVar6" pitchScale="0.9" volumeScale="1.4" linkNode="grabLeft" actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="grabLeft" />
+            <actionSound template="cylinderPunch" pitchScale="2" volumeScale="0.5" linkNode="grabLeft" actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="grabLeft" />
+            <actionSound template="clackVar6" pitchScale="0.6" volumeScale="1.7" linkNode="grabLeft" actionNames="TOOL_MOVE_END_NEG_LIMIT" nodes="grabLeft" />
+            <actionSound template="sheetImp02" pitchScale="0.8" volumeScale="2" linkNode="grabLeft" actionNames="TOOL_MOVE_END_NEG_LIMIT" nodes="grabLeft" />
+        </sounds>
+    </cylindered>
+
+    <designConfigurations>
+        <designConfiguration name="$l10n_shopItem_telehandlerBaleGrab" price="500" isDefault="true">
+            <objectChange node="spikesRoundBaleLeft" visibilityActive="true" visibilityInactive="false" />
+            <objectChange node="spikesRoundBaleRight" visibilityActive="true" visibilityInactive="false" />
+            <objectChange node="spikesRoundBaleLeftPart" rotationActive="0 0 0" rotationInactive="0 0 0" />
+            <objectChange node="spikesRoundBaleRightPart" rotationActive="0 0 0" rotationInactive="0 0 0" />
+            <objectChange node="colPartBaleSpikeLeft01" compoundChildActive="true" compoundChildInactive="false" />
+            <objectChange node="colPartBaleSpikeRight01" compoundChildActive="true" compoundChildInactive="false" />
+            <objectChange node="colPartRoundBaleLeft01" compoundChildActive="false" compoundChildInactive="true" />
+            <objectChange node="colPartRoundBaleLeft02" compoundChildActive="false" compoundChildInactive="true" />
+            <objectChange node="colPartRoundBaleRight01" compoundChildActive="false" compoundChildInactive="true" />
+            <objectChange node="colPartRoundBaleRight02" compoundChildActive="false" compoundChildInactive="true" />
+        </designConfiguration>
+        <designConfiguration name="$l10n_shopItem_frontloaderBaleFork" price="0">
+            <objectChange node="spikesRoundBaleLeft" visibilityActive="false" visibilityInactive="true" />
+            <objectChange node="spikesRoundBaleRight" visibilityActive="false" visibilityInactive="true" />
+            <objectChange node="spikesRoundBaleLeftPart" rotationActive="0 0 90" rotationInactive="0 0 0" />
+            <objectChange node="spikesRoundBaleRightPart" rotationActive="0 0 -90" rotationInactive="0 0 0" />
+            <objectChange node="colPartBaleSpikeLeft01" compoundChildActive="false" compoundChildInactive="true" />
+            <objectChange node="colPartBaleSpikeRight01" compoundChildActive="false" compoundChildInactive="true" />
+            <objectChange node="colPartRoundBaleLeft01" compoundChildActive="true" compoundChildInactive="false" />
+            <objectChange node="colPartRoundBaleLeft02" compoundChildActive="true" compoundChildInactive="false" />
+            <objectChange node="colPartRoundBaleRight01" compoundChildActive="true" compoundChildInactive="false" />
+            <objectChange node="colPartRoundBaleRight02" compoundChildActive="true" compoundChildInactive="false" />
+        </designConfiguration>
+    </designConfigurations>
+
+    <dynamicMountAttacher node="0>">
+        <mountCollisionMask node="colPartRoundBaleLeft01" collisionMask="134225920" />
+        <mountCollisionMask node="colPartRoundBaleRight01" collisionMask="134225920" />
+    </dynamicMountAttacher>
+
+    <ai>
+        <agentAttachment width="1.6" height="0.9" length="1.4" lengthOffset="-0.05" />
+    </ai>
+
+    <baseMaterial>
+        <material name="frontloaderRoundBaleFork_mat" baseNode="frontloaderRoundBaleFork_vis">
+            <shaderParameter name="colorMat0" value="ALBUTT_RED1" />
+            <shaderParameter name="colorMat1" value="ALBUTT_BLUE1" />
+        </material>
+    </baseMaterial>
+
+    <foliageBending>
+        <bendingNode minX="-0.85" maxX="0.85" minZ="-0.8" maxZ="-0.4" yOffset="0.05" />
+        <bendingNode minX="0.2" maxX="0.38" minZ="0.15" maxZ="1.25" yOffset="-0.4" node="grabLeft" />
+        <bendingNode minX="-0.2" maxX="-0.38" minZ="0.15" maxZ="1.25" yOffset="-0.4" node="grabRight" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2" />
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2" />
+
+    <i3dMappings>
+        <i3dMapping id="frontloaderRoundBaleFork_main_component1" node="0>" />
+        <i3dMapping id="frontloaderRoundBaleFork_vis" node="0>0" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="grabLeft" node="0>0|1" />
+        <i3dMapping id="spikesRoundBaleLeft" node="0>0|1|0" />
+        <i3dMapping id="spikesRoundBaleLeftPart" node="0>0|1|1|0" />
+        <i3dMapping id="grabHydraulic" node="0>0|1|2" />
+        <i3dMapping id="grabHydraulicPunch" node="0>0|1|2|0" />
+        <i3dMapping id="hydraulicIn01" node="0>0|1|2|1" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|1|2|1|0" />
+        <i3dMapping id="hydraulicIn01_connector" node="0>0|1|2|1|0|0" />
+        <i3dMapping id="hydraulicOut01" node="0>0|1|2|2" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|1|2|2|0" />
+        <i3dMapping id="hydraulicOut01_connector" node="0>0|1|2|2|0|0" />
+        <i3dMapping id="colPartBaleSpikeLeft01" node="0>0|1|4|1" />
+        <i3dMapping id="colPartRoundBaleLeft01" node="0>0|1|4|2" />
+        <i3dMapping id="colPartRoundBaleLeft02" node="0>0|1|4|3" />
+        <i3dMapping id="grabRight" node="0>0|2" />
+        <i3dMapping id="spikesRoundBaleRight" node="0>0|2|0" />
+        <i3dMapping id="spikesRoundBaleRightPart" node="0>0|2|1|0" />
+        <i3dMapping id="grabHydraulicRef" node="0>0|2|2" />
+        <i3dMapping id="colPartBaleSpikeRight01" node="0>0|2|4|1" />
+        <i3dMapping id="colPartRoundBaleRight01" node="0>0|2|4|2" />
+        <i3dMapping id="colPartRoundBaleRight02" node="0>0|2|4|3" />
+    </i3dMappings>
+</vehicle>
